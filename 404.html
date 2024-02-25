@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+        funs = {
+            path: (path) => {
+                history.replaceState(null, "", path)
+            },
+            title: (title) => { document.title = title; }
+        };
+        window.addEventListener("message", (event) => {
+            // if (! ["local"].includes(event.host)) return;
+            // console.log("event!", event, event.data);
+            (funs[event.data[0]])(event.data[1]);
+        });
+    </script>
+</head>
+
+<body style="margin:0px;padding:0px;overflow:hidden">
+    <!-- <script>
+        function changeFrameHeight() {
+            var iframe = document.getElementById("iframe");
+            iframe.height = document.documentElement.clientHeight;
+        }
+    </script> -->
+    <iframe id="iframe" name="iframe" height="100%" width="100%"
+        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px"
+        seamless="seamless" frameborder="0" marginwidth="0" marginheight="0"></iframe>
+    <script>
+        iframe = document.getElementById('iframe');
+        iframe.setAttribute("src", "http://localhost:8080" + window.location.href.substr(window.location.origin.length));
+    </script>
+</body>
+
+</html>
