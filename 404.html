@@ -9,6 +9,7 @@
         targets = {};
         targets['https://soku-cn.gitee.io'] = 'iframe1';
         targets['https://soku-cn.github.io'] = 'iframe2';
+        targets['https://tstar00-github-io.vercel.app'] = 'iframe3';
         usedTarget = ""
         funs = {
             path: (path) => {
@@ -49,10 +50,13 @@
         }
     </script> -->
     <iframe id="iframe1" height="100%" width="100%"
-        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:2;"
+        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:1;"
         seamless="seamless" frameborder="0" marginwidth="0" marginheight="0"></iframe>
     <iframe id="iframe2" height="100%" width="100%"
-        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:1;"
+        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:2;"
+        seamless="seamless" frameborder="0" marginwidth="0" marginheight="0"></iframe>
+    <iframe id="iframe3" height="100%" width="100%"
+        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:3;"
         seamless="seamless" frameborder="0" marginwidth="0" marginheight="0"></iframe>
     <script>
         for (var k in targets){
