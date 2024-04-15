@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <meta http-equiv="Content-Security-Policy" content="frame-ancestors *;">
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
@@ -12,7 +9,7 @@
         targets['https://soku-cn.gitee.io'] = 'iframe1';
         targets['https://soku-cn.github.io'] = 'iframe2';
         targets['https://hisoutensoku-cn-wiki.vercel.app'] = 'iframe3';
-        usedTarget = "";
+        usedTarget = ""
         funs = {
             path: (path) => {
                 history.replaceState(null, "", path)
@@ -20,6 +17,8 @@
             title: (title) => { document.title = title; }
         };
         window.addEventListener("message", (event) => {
+            // if (! ["local"].includes(event.host)) return;
+            // console.log("event!", event, event.data);
             if (!usedTarget) {
                 for (var k in targets) {
                     if (k != event.origin) continue;
@@ -43,17 +42,20 @@
 </head>
 
 <body style="margin:0px;padding:0px;overflow:hidden">
+    <!-- <script>
+        function changeFrameHeight() {
+            var iframe = document.getElementById("iframe");
+            iframe.height = document.documentElement.clientHeight;
+        }
+    </script> -->
     <iframe id="iframe1" height="100%" width="100%"
-        style="display: none; overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:1;"
+        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:1;"
         seamless="seamless" frameborder="0" marginwidth="0" marginheight="0"></iframe>
     <iframe id="iframe2" height="100%" width="100%"
-        style="display: none; overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:2;"
+        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:2;"
         seamless="seamless" frameborder="0" marginwidth="0" marginheight="0"></iframe>
     <iframe id="iframe3" height="100%" width="100%"
-        style="display: none; overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:3;"
-        seamless="seamless" frameborder="0" marginwidth="0" marginheight="0"></iframe>
-    <iframe id="giscusAppFrame" src="https://giscus.app/" height="100%" width="100%"
-        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:0;"
+        style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px;z-index:3;"
         seamless="seamless" frameborder="0" marginwidth="0" marginheight="0"></iframe>
     <script>
         for (var k in targets){
